@@ -1,0 +1,12 @@
+import re
+
+S, k = input(), input()
+matches = re.finditer(r'(?=(' + k + '))', S)
+
+found = False
+for match in matches:
+    found = True
+    print((match.start(1), match.start(1) + len(k) - 1))
+
+if not found:
+    print((-1, -1))
